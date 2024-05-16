@@ -1,11 +1,13 @@
 SIMULATION AND IMPLEMENTATION OF MULTIPLIER
 
 
-AIM: 
+**AIM:**
 
  
  
  To simulate and synthesis multiplier using Xilinx ISE.
+
+
 
 **APPARATUS REQUIRED:**
 
@@ -19,7 +21,7 @@ Spartan6 FPGA
 
 
 
-PROCEDURE:
+**PROCEDURE:**
 
 
 
@@ -69,7 +71,7 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 
 
-Logic Diagram :
+**Logic Diagram :**
 
 
 
@@ -96,7 +98,7 @@ Logic Diagram :
 
 
 
-Verilog code :
+**Verilog code :**
 
 
 
@@ -224,7 +226,7 @@ Output Waveform :
 
 
 
-Result  :
+**Result :**
 
 
 
