@@ -78,6 +78,10 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 
 
+
+
+
+
 **4 Bit Multiplier**
 
 
