@@ -15,7 +15,11 @@ AIM:
 Xilinx 14.7
 Spartan6 FPGA
   
-**PROCEDURE:**
+
+
+
+
+PROCEDURE:
 
 
 
@@ -65,11 +69,11 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 
 
-**Logic Diagram**
+Logic Diagram :
 
 
 
-2 bit Multiplier
+2 bit Multiplier :
 
 
 
@@ -82,7 +86,7 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 
 
-**4 Bit Multiplier**
+4 Bit Multiplier :
 
 
 
@@ -92,7 +96,7 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 
 
-**Verilog code**
+Verilog code :
 
 
 
@@ -193,7 +197,7 @@ endmodule
 
 
 
-**Output Waveform**
+Output Waveform :
 
 
 
@@ -220,7 +224,7 @@ endmodule
 
 
 
-**Result**
+Result  :
 
 
 
