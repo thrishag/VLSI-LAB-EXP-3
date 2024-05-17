@@ -229,7 +229,6 @@ Output Waveform :
 **Result :**
 
 
-
 simulation and synthesis multiplier using Xilinx ISE completed successesfully.
 
 
