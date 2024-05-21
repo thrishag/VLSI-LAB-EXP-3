@@ -14,8 +14,7 @@ SIMULATION AND IMPLEMENTATION OF MULTIPLIER
 
 
 
-Xilinx 14.7
-Spartan6 FPGA
+vivado
   
 
 
@@ -138,62 +137,77 @@ endmodule
 4 Bit Multiplier :
 
 
-
 ~~~
-module ha(a,b,sum,carry);
+module ha(a,b,c,s);
+
 input a,b;
-output sum,carry;
-xor g1(sum,a,b);
-and g2(carry,a,b);
+
+output s,c;
+
+xor g1(s,a,b);
+
+and g2(c,a,b);
+
 endmodule
 
-module fa(a,b,c,sum,carry);
+module fa(a,b,c,s,carry);
+
 input a,b,c;
-output sum,carry;
+
+output s,carry;
+
 wire w1,w2,w3;
-xor(w1,a,b);
-xor(sum,w1,c);
-and(w2,w1,c);
-and(w3,a,b);
-or(carry,w2,w3);
+
+xor g1(w1,a,b);
+
+and g2(w2,a,b);
+
+xor g3(s,w1,c);
+
+and g4(w3,w1,c);
+
+or g5(carry,w3,w2);
+
 endmodule
-module mul4bit(a,b,p);
-input [3:0]a,b;
-output [7:0]p;
-wire [15:0]w;
-wire [3:0]hc;
-wire [6:0]fc;
-wire [4:0]fs;
-wire hs;
-and r11(p[0],a[0],b[0]);
-and r12(w[1],a[1],b[0]);
-and r13(w[2],a[2],b[0]);
-and r14(w[3],a[3],b[0]);
-and r21(w[4],a[0],b[1]);
-and r22(w[5],a[1],b[1]);
-and r23(w[6],a[2],b[1]);
-and r24(w[7],a[3],b[1]);
-ha r31(w[1],w[4],p[1],hc[0]);
-fa r32(w[2],w[5],hc[0],fs[0],fc[0]);
-fa r33(w[3],w[6],fc[0],fs[1],fc[1]);
-ha r34(w[7],fc[1],hs,hc[1]);
-and r41(w[8],a[0],b[2]);
-and r42(w[9],a[1],b[2]);
-and r43(w[10],a[2],b[2]);
-and r44(w[11],a[3],b[2]);
-ha r51(w[8],fs[0],p[2],hc[2]);
-fa r52(w[9],fs[1],hc[2],fs[2],fc[2]);
-fa r53(w[10],hs,fc[2],fs[3],fc[3]);
-fa r54(w[11],hc[1],fc[3],fs[4],fc[4]);
-and r61(w[12],a[0],b[3]);
-and r62(w[13],a[1],b[3]);
-and r63(w[14],a[2],b[3]);
-and r64(w[15],a[3],b[3]);
-ha r71(w[12],fs[2],p[3],hc[3]);
-fa r72(w[13],fs[3],hc[3],p[4],fc[5]);
-fa r73(w[14],fs[4],fc[5],p[5],fc[6]);
-fa r74(w[15],fc[4],fc[6],p[6],p[7]);
+
+module bitmultiplier(x,y,z);
+
+input[3:0]x,y;
+
+output[7:0]z;
+
+wire [17:1]w;
+
+and g1(z[0],x[0],y[0]);
+
+ha ha1(x[1]&y[0],x[0]&y[1],z[1],w[1]);
+
+fa fa1(x[2]&y[0],x[1]&y[1],w[1],w[5],w[2]);
+
+fa fa2(x[3]&y[0],x[2]&y[1],w[2],w[6],w[3]);
+
+ha ha2(x[3]&y[1],w[3],w[7],w[4]);
+
+ha ha3(w[5],x[0]&y[2],z[2],w[8]);
+
+fa fa3(w[6],x[1]&y[2],w[8],w[12],w[9]);
+
+fa fa4(w[7],x[2]&y[2],w[9],w[13],w[10]);
+
+fa fa5(w[4],x[3]&y[2],w[10],w[14],w[11]);
+
+ha ha4(w[12],x[0]&y[3],z[3],w[15]);
+
+fa fa6(w[13],x[1]&y[3],w[15],z[4],w[16]);
+
+fa fa7(w[14],x[2]&y[3],w[16],z[5],w[17]);
+
+fa fa8(w[11],x[3]&y[3],w[17],z[6],z[7]);
+
 endmodule
+
+
+
 ~~~
 
 
